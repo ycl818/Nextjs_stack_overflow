@@ -8,7 +8,7 @@ import {
   useContext,
 } from "react";
 
-type ThemeContextType = {
+export type ThemeContextType = {
   mode: string;
   setMode: (mode: string) => void;
 };
