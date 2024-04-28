@@ -25,13 +25,13 @@ const Home = () => {
         clerkId: "clerk_id_1",
       },
       upvotes: ["user1", "user2", "user3"],
-      views: 20,
+      views: 20000000,
       answers: [
         {
           // Add your answer object structure here
         },
       ],
-      createdAt: new Date("2021-09-01T12:00:00.000Z"),
+      createdAt: new Date("2024-03-01T12:00:00.000Z"),
     },
     {
       _id: "2",
@@ -53,7 +53,7 @@ const Home = () => {
           // Add your answer object structure here
         },
       ],
-      createdAt: new Date("2021-09-02T12:00:00.000Z"),
+      createdAt: new Date("2023-09-02T12:00:00.000Z"),
     },
   ];
 
