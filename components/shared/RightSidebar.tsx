@@ -6,31 +6,31 @@ import RenderTag from "./RenderTag";
 const RightSidebar = () => {
   const topQuestions = [
     {
-      _id: 1,
+      _id: "1",
       title: "How to create a new project in React?",
       views: 100,
       answers: 10,
     },
     {
-      _id: 2,
+      _id: "2",
       title: "How to create a new project in Nexjs with a command?",
       views: 10,
       answers: 10,
     },
     {
-      _id: 3,
+      _id: "3",
       title: "How to create a new project in React?",
       views: 40,
       answers: 10,
     },
     {
-      _id: 4,
+      _id: "4",
       title: "How to create a new project in React?",
       views: 400,
       answers: 10,
     },
     {
-      _id: 5,
+      _id: "5",
       title: "How to create a new project in React?",
       views: 100,
       answers: 10,
@@ -38,10 +38,10 @@ const RightSidebar = () => {
   ];
 
   const popularTags = [
-    { _id: 1, name: "React", totalquestions: 1000 },
-    { _id: 2, name: "Nextjs", totalquestions: 1000 },
-    { _id: 3, name: "Javascript", totalquestions: 1000 },
-    { _id: 4, name: "Typescript", totalquestions: 1000 },
+    { _id: "1", name: "React", totalquestions: 1000 },
+    { _id: "2", name: "Nextjs", totalquestions: 1000 },
+    { _id: "3", name: "Javascript", totalquestions: 1000 },
+    { _id: "4", name: "Typescript", totalquestions: 1000 },
   ];
 
   return (
