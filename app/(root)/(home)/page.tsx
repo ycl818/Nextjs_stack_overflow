@@ -42,7 +42,7 @@ const Home = () => {
       ],
       author: {
         _id: "author2",
-        name: "Jane Doe",
+        name: "Maya Johnson",
         picture: "url_to_picture",
         clerkId: "clerk_id_2",
       },
@@ -54,6 +54,29 @@ const Home = () => {
         },
       ],
       createdAt: new Date("2023-09-02T12:00:00.000Z"),
+    },
+
+    {
+      _id: "3",
+      title: "How to use Redux in a React project?",
+      tags: [
+        { _id: "1", name: "react" },
+        { _id: "4", name: "redux" },
+      ],
+      author: {
+        _id: "author3",
+        name: "Alice Smith",
+        picture: "url_to_picture",
+        clerkId: "clerk_id_3",
+      },
+      upvotes: ["user6", "user7", "user8"],
+      views: 5000,
+      answers: [
+        {
+          // Add your answer object structure here
+        },
+      ],
+      createdAt: new Date("2024-01-15T08:30:00.000Z"),
     },
   ];
 
