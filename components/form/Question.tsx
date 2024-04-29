@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { Editor } from "@tinymce/tinymce-react";
 
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -20,10 +20,16 @@ import { QuestionsSchema } from "@/lib/validation";
 import { ThemeContextType, useTheme } from "@/context/ThemeProvider";
 import { Badge } from "../ui/badge";
 import Image from "next/image";
+import { create } from "domain";
+import { createQuestion } from "@/lib/actions/question.action";
+
+const type: any = "create";
 
 const Question = () => {
   const { mode } = useTheme() as ThemeContextType;
   const editorRef = useRef(null);
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   // 1. Define your form.
   const form = useForm<z.infer<typeof QuestionsSchema>>({
@@ -36,9 +42,19 @@ const Question = () => {
   });
 
   // 2. Define a submit handler.
-  function onSubmit(values: z.infer<typeof QuestionsSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
+  async function onSubmit(values: z.infer<typeof QuestionsSchema>) {
+    setIsSubmitting(true);
+
+    try {
+      // make async call to API -> create question
+      await createQuestion(values);
+
+      // contain all form data
+      // navigate to the home page
+    } catch (error) {
+    } finally {
+      setIsSubmitting(false);
+    }
     console.log(values);
   }
 
@@ -121,6 +137,8 @@ const Question = () => {
                     // @ts-ignore
                     editorRef.current = editor;
                   }}
+                  onBlur={field.onBlur}
+                  onEditorChange={(content) => field.onChange(content)}
                   initialValue=""
                   init={{
                     height: 350,
@@ -209,7 +227,13 @@ const Question = () => {
             </FormItem>
           )}
         />
-        <Button type="submit">Submit</Button>
+        <Button
+          type="submit"
+          className="primary-gradient w-fit !text-light-900 "
+          disabled={isSubmitting}
+        >
+          Submit
+        </Button>
       </form>
     </Form>
   );
