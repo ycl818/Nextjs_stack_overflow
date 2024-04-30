@@ -20,7 +20,7 @@ import { QuestionsSchema } from "@/lib/validation";
 import { ThemeContextType, useTheme } from "@/context/ThemeProvider";
 import { Badge } from "../ui/badge";
 import Image from "next/image";
-import { create } from "domain";
+
 import { createQuestion } from "@/lib/actions/question.action";
 
 const type: any = "create";
