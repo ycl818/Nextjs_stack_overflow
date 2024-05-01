@@ -77,7 +77,7 @@ export async function deleteUser(params: any) {
     return deleteUser;
   } catch (error) {
     console.log(error);
-    W;
+
     throw error;
   }
 }
