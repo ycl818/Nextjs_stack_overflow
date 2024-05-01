@@ -8,77 +8,11 @@ import { HomePageFilters } from "@/constants/filter";
 import HomeFilter from "@/components/home/HomeFilter";
 import NoResult from "@/components/shared/NoResult";
 import QuestionCard from "@/components/cards/QuestionCard";
+import { getQuestions } from "@/lib/actions/question.action";
 
-const Home = () => {
-  const questions = [
-    {
-      _id: "1",
-      title: "How to create a new project in React?",
-      tags: [
-        { _id: "1", name: "react" },
-        { _id: "2", name: "javascript" },
-      ],
-      author: {
-        _id: "author1",
-        name: "John Doe",
-        picture: "url_to_picture",
-        clerkId: "clerk_id_1",
-      },
-      upvotes: ["user1", "user2", "user3"],
-      views: 20000000,
-      answers: [
-        {
-          // Add your answer object structure here
-        },
-      ],
-      createdAt: new Date("2024-03-01T12:00:00.000Z"),
-    },
-    {
-      _id: "2",
-      title: "How to create a new project in Angular?",
-      tags: [
-        { _id: "3", name: "angular" },
-        { _id: "2", name: "javascript" },
-      ],
-      author: {
-        _id: "author2",
-        name: "Maya Johnson",
-        picture: "url_to_picture",
-        clerkId: "clerk_id_2",
-      },
-      upvotes: ["user4", "user5"],
-      views: 10,
-      answers: [
-        {
-          // Add your answer object structure here
-        },
-      ],
-      createdAt: new Date("2023-09-02T12:00:00.000Z"),
-    },
-
-    {
-      _id: "3",
-      title: "How to use Redux in a React project?",
-      tags: [
-        { _id: "1", name: "react" },
-        { _id: "4", name: "redux" },
-      ],
-      author: {
-        _id: "author3",
-        name: "Alice Smith",
-        picture: "url_to_picture",
-        clerkId: "clerk_id_3",
-      },
-      upvotes: ["user6", "user7", "user8"],
-      views: 5000,
-      answers: [
-        {
-          // Add your answer object structure here
-        },
-      ],
-      createdAt: new Date("2024-01-15T08:30:00.000Z"),
-    },
-  ];
+const Home = async () => {
+  const result = await getQuestions({});
+  console.log("🚀 ~ Home ~ result:", result.questions);
 
   return (
     <>
@@ -114,20 +48,22 @@ const Home = () => {
       <HomeFilter />
 
       <div className="mt-10 flex w-full flex-col gap-6">
-        {questions.length > 0 ? (
-          questions.map((question) => (
-            <QuestionCard
-              key={question._id}
-              _id={question._id}
-              title={question.title}
-              tags={question.tags}
-              author={question.author}
-              upvotes={question.upvotes}
-              views={question.views}
-              answers={question.answers}
-              createdAt={question.createdAt}
-            />
-          ))
+        {result.questions.length > 0 ? (
+          result.questions.map((question) => {
+            return (
+              <QuestionCard
+                key={question._id}
+                _id={question._id}
+                title={question.title}
+                tags={question.tags}
+                author={question.author}
+                upvotes={question.upvotes}
+                views={question.views}
+                answers={question.answers}
+                createdAt={question.createdAt}
+              />
+            );
+          })
         ) : (
           <NoResult
             title="There’s no question to show"

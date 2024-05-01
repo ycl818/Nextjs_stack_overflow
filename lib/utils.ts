@@ -48,7 +48,10 @@ export const formatAndDivideNumber = (num: number): string => {
   } else if (num >= 1000) {
     const formattedNum = (num / 1000).toFixed(1);
     return `${formattedNum}K`;
+  } else if (num === undefined) {
+    return "0";
   } else {
+    console.log("nummmmmmmmmmmmmmmmmmmm", num);
     return num.toString();
   }
 };
