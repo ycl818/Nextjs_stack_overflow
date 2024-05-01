@@ -22,10 +22,9 @@ import { Badge } from "../ui/badge";
 import Image from "next/image";
 
 import { createQuestion } from "@/lib/actions/question.action";
-import { title } from "process";
 import { useRouter, usePathname } from "next/navigation";
 
-const type: any = "create";
+// const type: any = "create";
 
 type QuestionProps = {
   mongoUserId: string;
