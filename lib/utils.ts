@@ -51,7 +51,6 @@ export const formatAndDivideNumber = (num: number): string => {
   } else if (num === undefined) {
     return "0";
   } else {
-    console.log("nummmmmmmmmmmmmmmmmmmm", num);
     return num.toString();
   }
 };
