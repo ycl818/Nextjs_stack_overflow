@@ -61,6 +61,7 @@ const Question = ({ mongoUserId }: QuestionProps) => {
         content: values.explaination,
         tags: values.tags,
         author: JSON.parse(mongoUserId),
+        path: pathname,
       });
 
       // contain all form data
