@@ -2,7 +2,7 @@ import React from "react";
 import { SignIn } from "@clerk/nextjs";
 
 const Page = () => {
-  return <SignIn path="/sign-in" />;
+  return <SignIn />;
 };
 
 export default Page;
