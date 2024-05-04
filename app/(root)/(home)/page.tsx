@@ -34,7 +34,7 @@ const Home = async () => {
           iconPosition="left"
           imgSrc="/assets/icons/search.svg"
           placeholder="Search for Questions"
-          ontherClasses="flex-1"
+          otherClasses="flex-1"
         />
 
         <Filter

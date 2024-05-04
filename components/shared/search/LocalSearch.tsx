@@ -9,7 +9,7 @@ type LocalSearchProps = {
   iconPosition: string;
   imgSrc: string;
   placeholder: string;
-  ontherClasses: string;
+  otherClasses: string;
 };
 
 const LocalSearch = ({
@@ -17,11 +17,11 @@ const LocalSearch = ({
   iconPosition,
   imgSrc,
   placeholder,
-  ontherClasses,
+  otherClasses,
 }: LocalSearchProps) => {
   return (
     <div
-      className={`background-light800_darkgradient relative flex min-h-[56px] grow items-center gap-4 rounded-[10px] px-4 ${ontherClasses}`}
+      className={`background-light800_darkgradient relative flex min-h-[56px] grow items-center gap-4 rounded-[10px] px-4 ${otherClasses}`}
     >
       {iconPosition === "left" && (
         <Image

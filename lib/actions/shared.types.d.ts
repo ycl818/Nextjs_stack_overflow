@@ -29,3 +29,10 @@ export interface UpdateUserParams {
   updateData: Partial<IUser>;
   path: string;
 }
+
+export interface GetAllUsersParams {
+  page?: number;
+  pageSize?: number;
+  filter?: string;
+  searchQuery?: string; // Add searchQuery parameter
+}
