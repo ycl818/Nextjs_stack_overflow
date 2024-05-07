@@ -67,7 +67,7 @@ const page = async ({ params }) => {
         />
       </div>
 
-      <ParseHTML content={result.content} />
+      <ParseHTML data={result.content} />
       {/* code part */}
     </>
   );
