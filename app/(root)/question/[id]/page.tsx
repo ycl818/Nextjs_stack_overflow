@@ -1,3 +1,4 @@
+import Answer from "@/components/form/Answer";
 import Metric from "@/components/shared/Metric";
 import ParseHTML from "@/components/shared/ParseHTML";
 import RenderTag from "@/components/shared/RenderTag";
@@ -81,6 +82,8 @@ const page = async ({ params }) => {
           />
         ))}
       </div>
+
+      <Answer />
     </>
   );
 };
