@@ -48,3 +48,7 @@ export interface GetAllTagsParams {
   filter?: string;
   searchQuery?: string;
 }
+
+export interface GetQuestionByIdParams {
+  questionId: string;
+}
