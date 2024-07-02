@@ -6,6 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { getTimestamp } from "@/lib/utils";
 import ParseHTML from "./ParseHTML";
+import Votes from "./Votes";
 
 type AllAnswersProps = {
   questionId: string;
@@ -25,8 +26,6 @@ const AllAnswers = async ({
   const result = await getAnswers({
     questionId,
   });
-
-  console.log("🚀 ~ result:", result);
 
   return (
     <div className="mt-11">
@@ -62,7 +61,17 @@ const AllAnswers = async ({
                     answered {"  "} {getTimestamp(answer.createdAt)}
                   </p>
                 </Link>
-                <div className="flex justify-end">VOTING</div>
+                <div className="flex justify-end">
+                  <Votes
+                    type="Answer"
+                    itemId={JSON.stringify(answer._id)}
+                    userId={userId}
+                    upvotes={answer.upvotes.length}
+                    hasupVoted={answer.upvotes.includes(userId)}
+                    downvotes={answer.downvotes.length}
+                    hasdownVoted={answer.downvotes.includes(userId)}
+                  />
+                </div>
               </div>
             </div>
             <ParseHTML data={answer.content} />
