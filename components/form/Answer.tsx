@@ -16,8 +16,17 @@ import { Editor } from "@tinymce/tinymce-react";
 import { ThemeContextType, useTheme } from "@/context/ThemeProvider";
 import { Button } from "../ui/button";
 import Image from "next/image";
+import { createAnswer } from "@/lib/actions/answer.action";
+import { usePathname } from "next/navigation";
 
-const Answer = () => {
+type AnswerProps = {
+  question: string;
+  questionId: string;
+  authorId: string;
+};
+
+const Answer = ({ question, questionId, authorId }: AnswerProps) => {
+  const pathname = usePathname();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { mode } = useTheme() as ThemeContextType;
   const editorRef = useRef(null);
@@ -29,7 +38,33 @@ const Answer = () => {
     },
   });
 
-  const handleCreateAnswer = () => {};
+  const handleCreateAnswer = async (values: z.infer<typeof AnswerSchema>) => {
+    setIsSubmitting(true);
+    console.log("value~~:", values.answer);
+    console.log("authorId~~:", authorId);
+    console.log("questionId~~:", questionId);
+    console.log("pathname~~:", pathname);
+    try {
+      await createAnswer({
+        content: values.answer,
+        author: JSON.parse(authorId),
+        question: JSON.parse(questionId),
+        path: pathname,
+      });
+
+      form.reset();
+
+      if (editorRef.current) {
+        const editor = editorRef.current as any;
+
+        editor.setContent("");
+      }
+    } catch (error) {
+      console.log("🚀 ~ handleCreateAnswer ~ error:", error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <div>
