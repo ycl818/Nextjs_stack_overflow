@@ -104,8 +104,9 @@ const Answer = ({ question, questionId, authorId }: AnswerProps) => {
         <h4 className="paragraph-semibold text-dark400_light800">
           Write your answer here
         </h4>
+
         <Button
-          className="btn light-border-2 gap-1.5 rounded-md px-4 py-2.5 text-primary-500 shadow-none"
+          className="btn light-border-2 gap-1.5 rounded-md px-4 py-2.5 text-primary-500 shadow-none dark:text-primary-500"
           onClick={generateAIAnswer}
         >
           {isSubmittingAI ? (
@@ -124,6 +125,7 @@ const Answer = ({ question, questionId, authorId }: AnswerProps) => {
           )}
         </Button>
       </div>
+
       <Form {...form}>
         <form
           className="mt-6 flex w-full flex-col gap-10"
